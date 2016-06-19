@@ -19,7 +19,7 @@
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  height: 500px;
+  height: 400px;
   text-align: center;
   .overlay {
     position: absolute;
@@ -34,12 +34,13 @@
       .row {
         h1 {
           color: #FFFFFF;
-          margin-top: 100px;
+          margin-top: 85px;
+          font-size: 38px;
           font-weight: 600;
         }
         h2 {
           color: #FFFFFF;
-          //     font-size: 24px;
+          font-size: 24px;
           font-weight: 400;
         }
       }
