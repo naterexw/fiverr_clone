@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label>Gig Title</label>
+  <%= form.text_area :title, placeholder: "Ex: I will do something I am really good at", rows: "2", class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Description</label>
+  <%= form.text_area :description, rows: "5", class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <label>Price</label>
+  <div class="select-control">
+    <%= form.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label>Requirements</label>
+  <%= form.text_area :requirements, rows: "5", class: "form-control" %>
+</div>

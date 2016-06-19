@@ -1,0 +1,61 @@
+body {
+  background-color: #F7F7F7;
+}
+
+label {
+  font-size: 17px;
+  font-weight: 500;
+  color: #333333;
+  text-transform: uppercase;
+}
+
+select {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
+  padding: 10px;
+  width: 100px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.select-control {
+  font-size: 16px;
+  position: relative;
+  display: block;
+  &:before {
+    content: '\25bc';
+    font-size: 16px;
+    top: 10px;
+    left: 60px;
+    position: absolute;
+    color: #CCCCCC;
+    transform: scale(0.84, 0.42);
+    pointer-events: none;
+  }
+}
+
+.hero {
+  background: image-url('homepage_jumbotron.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 500px;
+  text-align: center;
+  .overlay {
+    background-color: rgba(0,0,0,0.5); /*dim the background*/
+    height: inherit;
+  }
+}
+
+.hero-heading {
+  color: #FFFFFF;
+  margin-top: 100px;
+  font-size: 38px;
+  font-weight: 600;
+  p {
+    font-size: 24px;
+    font-weight: 400;
+  }
+}

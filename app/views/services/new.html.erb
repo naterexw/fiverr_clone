@@ -4,31 +4,17 @@
       <h2>Create your gig</h2>
     </div>
     <div class="panel-body">
-      <%= form_for @service do |f| %>
+      <%= form_for @service do |form| %>
 
-        <div class="form-group">
-          <label>Gig Title</label>
-          <%= f.text_area :title, placeholder: "Ex: I will do something I am really good at", rows: "2", class: "form-control" %>
+        <%= render partial: 'form', object: form %>
+
+        <%= button_tag type: "submit", class: "btn btn-success btn-lg" do %>
+          <span class="glyphicon glyphicon-ok-sign"></span> Publish Gig
+        <% end %>
+
+        <div class="pull-right">
+          <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span> Cancel'.html_safe, root_path, class: "btn btn-default btn-lg" %>
         </div>
-
-        <div class="form-group">
-          <label>Description</label>
-          <%= f.text_area :description, rows: "5", class: "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <label>Price</label>
-          <div class="select-control">
-            <%= f.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Requirements</label>
-          <%= f.text_area :requirements, rows: "5", class: "form-control" %>
-        </div>
-
-        <%= f.submit "Publish Gig", class: "btn btn-primary" %>
 
       <% end %>
     </div>
