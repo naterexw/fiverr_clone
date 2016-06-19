@@ -13,3 +13,57 @@
 .btn-success {
   background-color: #00b22d;
 }
+
+.jumbotron {
+  background: image-url('homepage_jumbotron.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 500px;
+  text-align: center;
+  .overlay {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: inherit;
+    width: inherit;
+    background-color: rgba(0,0,0,0.5); /*dim the background*/
+    .container {
+      .row {
+        h1 {
+          color: #FFFFFF;
+          margin-top: 100px;
+          font-weight: 600;
+        }
+        h2 {
+          color: #FFFFFF;
+          //     font-size: 24px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+.panel {
+  .panel-heading.fill {
+    padding: 0;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .panel-body.fill {
+    h4 {
+      padding: 10px;
+      font-weight: 400;
+    }
+    h3 {
+      color: #00B22D;
+      padding: 0px 10px;
+      font-size: 19px;
+    }
+  }
+}
