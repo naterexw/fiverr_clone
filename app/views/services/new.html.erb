@@ -5,10 +5,31 @@
     </div>
     <div class="panel-body">
       <%= form_for @service do |f| %>
+
         <div class="form-group">
           <label>Gig Title</label>
           <%= f.text_area :title, placeholder: "Ex: I will do something I am really good at", rows: "2", class: "form-control" %>
         </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <%= f.text_area :description, rows: "5", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <label>Price</label>
+          <div class="select-control">
+            <%= f.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Requirements</label>
+          <%= f.text_area :requirements, rows: "5", class: "form-control" %>
+        </div>
+
+        <%= f.submit "Publish Gig", class: "btn btn-primary btn-block" %>
+
       <% end %>
     </div>
   </div>
