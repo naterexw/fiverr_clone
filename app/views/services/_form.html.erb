@@ -1,21 +1,51 @@
+<% if @service.errors.any? %>
+  <div class="alert alert-info">
+    <h3>
+      Fix the following <%= pluralize(@service.errors.count, "error") %> before continuing:
+    </h3>
+    <ul>
+      <% @service.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="form-group">
-  <label>Gig Title</label>
-  <%= form.text_area :title, placeholder: "Ex: I will do something I am really good at", rows: "2", class: "form-control" %>
+  <label>Title</label>
+  <%= form.text_area :title, placeholder: "example: I will write 10 blog posts...", rows: "2", class: "form-control", required: true %>
 </div>
 
 <div class="form-group">
   <label>Description</label>
-  <%= form.text_area :description, rows: "5", class: "form-control" %>
+  <%= form.text_area :description, rows: "3", class: "form-control", required: true %>
 </div>
 
+<div class="row"> </div>
 <div class="form-group">
   <label>Price</label>
   <div class="select-control">
-    <%= form.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control" %>
+    <%= form.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control", required: true %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label>Delivery time</label>
+  <div class="select-control">
+    <%= form.select :delivery_time, [["1 day", "1"], ["3 days", "3"], ["5 days", "5"], ["7 days", "7"]], class: "form-control", required: true %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label>Revisions</label>
+  <div class="select-control">
+    <%= form.select :revisions, [["1 revision", "1"], ["3 revisions", "3"], ["5 revisions", "5"], ["unlimited revisions", "unlimited"]], class: "form-control", required: true %>
   </div>
 </div>
 
 <div class="form-group">
   <label>Requirements</label>
-  <%= form.text_area :requirements, rows: "5", class: "form-control" %>
+  <%= form.text_area :requirements, placeholder: "enter 'none' if nothing is required", rows: "3", class: "form-control", required: true %>
 </div>
+
+
