@@ -20,18 +20,27 @@
         <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Sign up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log in</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        <% if (user_signed_in?) %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<%= current_user.email %>
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %>W</li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "<span class='glyphicon glyphicon-plus-sign'></span>&nbsp;&nbsp;Join".html_safe, new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "<span class='glyphicon glyphicon-log-in'></span>&nbsp;&nbsp;Sign In".html_safe, new_user_session_path %>
+          </li>
+        <% end %>
         <%= link_to "<span class='glyphicon glyphicon-usd'></span>&nbsp;&nbsp;Start selling".html_safe, new_service_path, class: "btn btn-success navbar-btn" %>
       </ul>
     </div><!-- /.navbar-collapse -->
