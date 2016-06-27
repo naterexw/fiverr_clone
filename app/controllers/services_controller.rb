@@ -12,6 +12,7 @@ class ServicesController < ApplicationController
   end
 
   def create
+    byebug
     @service = Service.new(service_params)
 
     if @service.save
