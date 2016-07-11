@@ -5,4 +5,8 @@ class Service < ActiveRecord::Base
   validates_presence_of :delivery_time
   validates_presence_of :revisions
   validates_presence_of :requirements, length: {maximum:450}
+
+  # before_action :authenticate_user!, :except => [:index]
+  belongs_to :user
+
 end
