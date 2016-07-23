@@ -1,6 +1,9 @@
+<br>
+<br>
 <div class="row">
   <div class="col-md-offset-3 col-md-6 auth-form">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <!-- <h2>Edit <%= resource_name.to_s.humanize %></h2> -->
+    <h2>Edit profile</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -33,7 +36,7 @@
         <!-- <h3>Cancel my account</h3> -->
         <!-- <p>Unhappy?</p> -->
         <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
-        </div>
+      </div>
 
       <div class="actions">
         <%= f.submit "Update", class: "btn btn-success" %>
