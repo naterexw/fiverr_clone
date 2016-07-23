@@ -30,7 +30,7 @@ select {
     content: '\25bc';
     font-size: 16px;
     top: 10px;
-    left: 60px;
+    left: 80px;
     position: absolute;
     color: #CCCCCC;
     transform: scale(0.84, 0.42);
@@ -41,4 +41,12 @@ select {
 .padding-left-15 {
   padding-left: 15px;
   // margin: auto;
+}
+
+.auth-form {
+  margin-top: 50px;
+  background: white;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  padding: 10px 30px;
 }
