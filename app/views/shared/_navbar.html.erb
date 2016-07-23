@@ -35,10 +35,10 @@
           </li>
         <% else %>
           <li>
-            <%= link_to "<span class='glyphicon glyphicon-plus-sign'></span>&nbsp;&nbsp;Join".html_safe, new_user_registration_path %>
+            <%= link_to "<span class='glyphicon glyphicon-plus-sign'></span>&nbsp;&nbsp;Sign Up".html_safe, new_user_registration_path %>
           </li>
           <li>
-            <%= link_to "<span class='glyphicon glyphicon-log-in'></span>&nbsp;&nbsp;Sign In".html_safe, new_user_session_path %>
+            <%= link_to "<span class='glyphicon glyphicon-log-in'></span>&nbsp;&nbsp;Log in".html_safe, new_user_session_path %>
           </li>
         <% end %>
         <%= link_to "<span class='glyphicon glyphicon-usd'></span>&nbsp;&nbsp;Start selling".html_safe, new_service_path, class: "btn btn-success navbar-btn" %>
