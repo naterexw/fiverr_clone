@@ -2,7 +2,7 @@
 <br>
 <div class="row">
   <div class="col-md-offset-3 col-md-6 auth-form">
-    <h2>Resend unlock instructions</h2>
+    <h2 class="text-center">Resend unlock instructions</h2>
 
     <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
       <%= devise_error_messages! %>

@@ -2,7 +2,7 @@
 <br>
 <div class="row">
   <div class="col-md-offset-3 col-md-6 auth-form">
-    <h2>Change your password</h2>
+    <h2 class="text-center">Change your password</h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -22,7 +22,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit "Change my password", class: "btn btn-success" %>
+        <%= f.submit "Change my password", class: "btn btn-success btn-lg" %>
       </div>
     <% end %>
 
