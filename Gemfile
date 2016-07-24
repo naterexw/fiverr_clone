@@ -29,6 +29,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Devise gem for user authentication
 gem 'devise'
 
+# Use Omniauth gem for facebook login
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+# Use Figaro gem for env variables
+gem "figaro"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

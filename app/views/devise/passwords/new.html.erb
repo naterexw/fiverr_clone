@@ -5,6 +5,7 @@
     <h2 class="text-center">Forgot your password?</h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
       <%= devise_error_messages! %>
 
       <div class="form-group">

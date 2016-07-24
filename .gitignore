@@ -85,3 +85,6 @@ bower.json
 
 # Powder
 .powder
+
+# Ignore application configuration
+/config/application.yml

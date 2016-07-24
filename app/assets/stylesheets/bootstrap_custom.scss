@@ -48,7 +48,10 @@
   }
 }
 
-.panel {
+.panel.panel-default {
+  .panel-heading, .panel-footer {
+    background-color: #FFFFFF;
+  }
   .panel-heading.fill {
     padding: 0;
     img {
@@ -67,11 +70,5 @@
       // padding: 0px 10px;
       // font-size: 19px;
     }
-  }
-}
-
-.panel.panel-default {
-  .panel-heading, .panel-footer {
-    background-color: #FFFFFF;
   }
 }
