@@ -34,5 +34,8 @@
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
       <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
     <% end -%>
+
+    <hr>
+    <%= link_to "Log in with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-lg" %>
   </div>
 </div>
