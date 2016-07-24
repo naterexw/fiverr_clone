@@ -1,0 +1,21 @@
+<br>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <center>
+          <%= image_tag get_avatar_url(@user, 64), class: "img-circle img-responsive" %>
+          <h3><%= @user.fullname %></h3>
+        </center>
+      </div>
+      <div class="panel-body">
+        <%= @user.description %>
+      </div>
+      <div class="panel-footer">
+        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+
+</div>

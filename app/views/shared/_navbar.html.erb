@@ -32,7 +32,7 @@
                 <%= link_to "<span class='glyphicon glyphicon-usd'></span>&nbsp;&nbsp;Create a gig".html_safe, new_service_path %>
               </li>
               <li>
-                <%= link_to "<span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;Edit profile".html_safe, edit_user_registration_path %>
+                <%= link_to "<span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;View profile".html_safe, user_path(current_user.id) %>
               </li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "<span class='glyphicon glyphicon-log-out'></span>&nbsp;&nbsp;Log out".html_safe, destroy_user_session_path, method: :delete %></li>
