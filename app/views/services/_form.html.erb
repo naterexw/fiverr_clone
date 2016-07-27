@@ -1,5 +1,5 @@
 <% if @service.errors.any? %>
-  <div class="alert alert-info">
+  <div class="alert alert-danger">
     <h3>
       Fix the following <%= pluralize(@service.errors.count, "error") %> before continuing:
     </h3>
