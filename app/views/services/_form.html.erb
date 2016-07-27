@@ -21,26 +21,37 @@
   <%= form.text_area :description, rows: "3", class: "form-control", required: true %>
 </div>
 
-<div class="row"> </div>
-<div class="form-group">
-  <label>Price</label>
-  <div class="select-control">
-    <%= form.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control", required: true %>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label>Price</label>
+      <div class="select-control">
+        <%= form.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control", required: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label>Delivery time</label>
+      <div class="select-control">
+        <%= form.select :delivery_time, [["1 day", "1"], ["3 days", "3"], ["5 days", "5"], ["7 days", "7"]], class: "form-control", required: true %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label>Revisions</label>
+      <div class="select-control">
+        <%= form.select :revisions, [["1", "1"], ["3", "3"], ["5", "5"], ["unlimited", "unlimited"]], class: "form-control", required: true %>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="form-group">
-  <label>Delivery time</label>
-  <div class="select-control">
-    <%= form.select :delivery_time, [["1 day", "1"], ["3 days", "3"], ["5 days", "5"], ["7 days", "7"]], class: "form-control", required: true %>
-  </div>
-</div>
-
-<div class="form-group">
-  <label>Revisions</label>
-  <div class="select-control">
-    <%= form.select :revisions, [["1 revision", "1"], ["3 revisions", "3"], ["5 revisions", "5"], ["unlimited revisions", "unlimited"]], class: "form-control", required: true %>
-  </div>
+  <label>Requirements</label>
+  <%= form.text_area :requirements, rows: "3", class: "form-control", required: true %>
 </div>
 
 <div class="form-group">
