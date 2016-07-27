@@ -14,16 +14,18 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
+        <div class="input-group">
           <input type="text" class="form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </span>
         </div>
-        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <span><%= image_tag get_avatar_url(current_user, 64), class: "img-circle navbar-avatar" %></span>&nbsp;
+              <span><%= image_tag get_avatar_url(current_user, 22), class: "img-circle navbar-avatar" %></span>&nbsp;
               <%= current_user.fullname %>
               <span class="caret"></span>
             </a>
@@ -40,7 +42,7 @@
           </li>
         <% else %>
           <li>
-            <%= link_to "<span class='glyphicon glyphicon-plus-sign'></span>&nbsp;&nbsp;Sign Up".html_safe, new_user_registration_path %>
+            <%= link_to "<span class='glyphicon glyphicon-plus-sign'></span>&nbsp;&nbsp;Sign up".html_safe, new_user_registration_path %>
           </li>
           <li>
             <%= link_to "<span class='glyphicon glyphicon-log-in'></span>&nbsp;&nbsp;Log in".html_safe, new_user_session_path %>

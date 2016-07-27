@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'pages#home'
+
+  devise_for :users,
+             path: "", # Remove "/users/.." from URL
+             path_names: {sign_in: "login", sign_out: "logout", edit: "profile"}, # Change path names in URL, i.e. "/login" instead of "/sign_in"
+             controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
 
   resources :users, only: [:show]
   resources :services
