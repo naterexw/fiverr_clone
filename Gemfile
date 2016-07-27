@@ -36,6 +36,9 @@ gem 'omniauth-facebook'
 # Use Figaro gem for env variables
 gem "figaro"
 
+# Use paperclip for image uploads
+gem "paperclip"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
