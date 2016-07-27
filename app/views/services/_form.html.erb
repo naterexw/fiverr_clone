@@ -45,7 +45,9 @@
 
 <div class="form-group">
   <label>Add photo</label>
-  <%= form.text_area :requirements, placeholder: "enter 'none' if nothing is required", rows: "3", class: "form-control", required: true %>
+  <%= form.file_field :image %>
 </div>
+
+<hr>
 
 
