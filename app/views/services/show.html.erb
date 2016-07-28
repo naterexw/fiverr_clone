@@ -20,4 +20,19 @@
       </div>
     </div>
   </div>
+  <div class="col-md-4">
+    <%= render "orders/form" %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="text-center">Seller information</h3>
+      </div>
+      <div class="panel-body">
+        <center>
+          <%= image_tag get_avatar_url(@service.user, 128), class: "img-circle img-responsive" %>
+          <h3><%= @service.user.fullname %></h3>
+        </center>
+        <%= @service.user.description %>
+      </div>
+    </div>
+  </div>
 </div>
