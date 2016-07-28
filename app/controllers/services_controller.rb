@@ -10,11 +10,11 @@ class ServicesController < ApplicationController
   end
 
   def new
-    @service = Service.new
+    @service = current_user.services.build
   end
 
   def create
-    @service = Service.new(service_params)
+    @service = current_user.services.build(service_params)
 
     if @service.save
       redirect_to @service
