@@ -1,64 +1,92 @@
-<% if @service.errors.any? %>
-  <div class="alert alert-danger">
-    <h3>
-      Fix the following <%= pluralize(@service.errors.count, "error") %> before continuing:
-    </h3>
-    <ul>
-      <% @service.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="text-center"><%= @service.new_record? ? "Create your gig" : "Edit your gig" %></h2>
+    </div>
+    <div class="panel-body">
+      <%= form_for @service do |f| %>
+
+        <% if @service.errors.any? %>
+          <div class="alert alert-danger">
+            <h3>
+              Fix the following <%= pluralize(@service.errors.count, "error") %> before continuing:
+            </h3>
+            <ul>
+              <% @service.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <label>Title</label>
+          <%= f.text_area :title, placeholder: "example: I will write 10 blog posts...", rows: "2", class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <%= f.text_area :description, rows: "3", class: "form-control", required: true %>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Price</label>
+              <div class="select-control">
+                <%= f.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control", required: true %>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Delivery time</label>
+              <div class="select-control">
+                <%= f.select :delivery_time, [["1 day", "1"], ["3 days", "3"], ["5 days", "5"], ["7 days", "7"]], class: "form-control", required: true %>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Revisions</label>
+              <div class="select-control">
+                <%= f.select :revisions, [["1", "1"], ["3", "3"], ["5", "5"], ["unlimited", "unlimited"]], class: "form-control", required: true %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Requirements</label>
+          <%= f.text_area :requirements, rows: "3", class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <label>Add photo</label>
+          <%= f.file_field :image %>
+        </div>
+
+        <hr>
+
+        <% if @service.new_record? %>
+          <%= button_tag type: "submit", class: "btn btn-success btn-lg" do %>
+            <span class="glyphicon glyphicon-ok-sign"></span> Publish gig
+          <% end %>
+        <% else %>
+          <%= button_tag type: "submit", class: "btn btn-success btn-lg" do %>
+            <span class="glyphicon glyphicon-ok-sign"></span> Update gig
+          <% end %>
+        <% end %>
+
+<!--         <%= f.submit @service.new_record? ? '<span class="glyphicon glyphicon-ok-sign"></span> Publish gig'.html_safe : '<span class="glyphicon glyphicon-ok-sign"></span> Update gig'.html_safe, class: "btn btn-success btn-lg" %> -->
+
+        <div class="pull-right">
+          <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span> Cancel'.html_safe, root_path, class: "btn btn-default btn-lg" %>
+        </div>
+
       <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<div class="form-group">
-  <label>Title</label>
-  <%= form.text_area :title, placeholder: "example: I will write 10 blog posts...", rows: "2", class: "form-control", required: true %>
-</div>
-
-<div class="form-group">
-  <label>Description</label>
-  <%= form.text_area :description, rows: "3", class: "form-control", required: true %>
-</div>
-
-<div class="row">
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label>Price</label>
-      <div class="select-control">
-        <%= form.select :price, [["$5", "5"], ["$10", "10"], ["$15", "15"], ["$20", "20"]], class: "form-control", required: true %>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label>Delivery time</label>
-      <div class="select-control">
-        <%= form.select :delivery_time, [["1 day", "1"], ["3 days", "3"], ["5 days", "5"], ["7 days", "7"]], class: "form-control", required: true %>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label>Revisions</label>
-      <div class="select-control">
-        <%= form.select :revisions, [["1", "1"], ["3", "3"], ["5", "5"], ["unlimited", "unlimited"]], class: "form-control", required: true %>
-      </div>
     </div>
   </div>
 </div>
-
-<div class="form-group">
-  <label>Requirements</label>
-  <%= form.text_area :requirements, rows: "3", class: "form-control", required: true %>
-</div>
-
-<div class="form-group">
-  <label>Add photo</label>
-  <%= form.file_field :image %>
-</div>
-
-<hr>
-
 
