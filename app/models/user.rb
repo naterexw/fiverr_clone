@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates :description, presence: false, length: {maximum: 1500}
 
   has_many :services
+  has_many :orders
+
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
