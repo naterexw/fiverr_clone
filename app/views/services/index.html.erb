@@ -1,2 +1,38 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <center>
+          <%= image_tag get_avatar_url(current_user, 128), class: "img-circle img-responsive" %>
+          <h3><%= current_user.fullname %></h3>
+        </center>
+      </div>
+      <div class="panel-body">
+        <%= current_user.description %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>My gigs</h3>
+      </div>
+      <div class="panel-body">
+        <% @services.each do |service| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= image_tag service.image.url(:thumb) %>
+            </div>
+            <div class="col-md-7">
+              <h4><%= service.title %></h4>
+            </div>
+            <div class="col-md-3">
+              <%= link_to "Update", edit_service_path(service), class: "btn btn-success pull-right" %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

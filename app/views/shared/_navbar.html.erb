@@ -33,6 +33,11 @@
               <li>
                 <%= link_to "<span class='glyphicon glyphicon-usd'></span>&nbsp;&nbsp;Create a gig".html_safe, new_service_path %>
               </li>
+              <li class="dropdown-header">Buying</li>
+              <li class="dropdown-header">Selling</li>
+              <li>
+                <%= link_to "<span class='glyphicon glyphicon-list'></span>&nbsp;&nbsp;My gigs".html_safe, services_path %>
+              </li>
               <li>
                 <%= link_to "<span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;View profile".html_safe, user_path(current_user.id) %>
               </li>
