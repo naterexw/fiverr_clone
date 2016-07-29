@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :order, only: [:show]
 
   get "/user_orders", to: "orders#user_orders"
+  get "/user_sales", to: "orders#user_sales"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

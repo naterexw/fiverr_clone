@@ -31,12 +31,18 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to "<span class='glyphicon glyphicon-usd'></span>&nbsp;&nbsp;Create a gig".html_safe, new_service_path %>
+                <%= link_to "<span class='glyphicon glyphicon-pencil'></span>&nbsp;&nbsp;Create a gig".html_safe, new_service_path %>
               </li>
               <li class="dropdown-header">Buying</li>
+              <li>
+                <%= link_to "<span class='glyphicon glyphicon-list'></span>&nbsp;&nbsp;My orders".html_safe, user_orders_path %>
+              </li>
               <li class="dropdown-header">Selling</li>
               <li>
                 <%= link_to "<span class='glyphicon glyphicon-list'></span>&nbsp;&nbsp;My gigs".html_safe, services_path %>
+              </li>
+              <li>
+                <%= link_to "<span class='glyphicon glyphicon-usd'></span>&nbsp;&nbsp;Manage sales".html_safe, user_sales_path %>
               </li>
               <li>
                 <%= link_to "<span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;View profile".html_safe, user_path(current_user.id) %>
@@ -52,7 +58,7 @@
           <li>
             <%= link_to "<span class='glyphicon glyphicon-log-in'></span>&nbsp;&nbsp;Log in".html_safe, new_user_session_path %>
           </li>
-          <%= link_to "<span class='glyphicon glyphicon-usd'></span>&nbsp;&nbsp;Start selling".html_safe, new_service_path, class: "btn btn-success navbar-btn" %>
+          <%= link_to "Start selling".html_safe, new_service_path, class: "btn btn-success navbar-btn" %>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

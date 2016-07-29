@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="text-center">My sales</h3>
+      </div>
+      <div class="panel-body">
+        <% @services.each do |service| %>
+          <% service.orders.each do |order| %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= link_to service_path(order.service) do %>
+                <%= image_tag order.service.image.url(:thumb) %>
+                <% end %>
+              </div>
+              <div class="col-md-2">
+                <%= link_to service_path(order.service) do %>
+                <h4><%= order.service.title %></h4>
+                <% end %>
+              </div>
+              <div class="col-md-2">
+                <h5>
+                  Quantity: <%= order.quantity %><br>
+                  Price: $<%= order.price %>
+                </h5>
+              </div>
+              <div class="col-md-2">
+                <span><%= image_tag get_avatar_url(order.user, 22), class: "img-circle navbar-avatar" %></span>
+                <h5><%= order.user.fullname %></h5>
+              </div>
+              <div class="col-md-2">
+                <h5><%= order.created_at.strftime("%b %d, %Y") %></h5>
+              </div>
+              <div class="col-md-2">
+                <h5>Total: $<%= order.total_price %></h5>
+              </div>
+            </div>
+            <hr>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
