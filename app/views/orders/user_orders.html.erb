@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <center>
+          <%= image_tag get_avatar_url(current_user, 128), class: "img-circle img-responsive" %>
+          <h3><%= current_user.fullname %></h3>
+        </center>
+      </div>
+      <div class="panel-body">
+        <%= current_user.description %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="text-center">My orders</h3>
+      </div>
+      <div class="panel-body">
+        <% @orders.each do |order| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= link_to service_path(order.service) do %>
+              <%= image_tag order.service.image.url(:thumb) %>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+              <%= link_to service_path(order.service) do %>
+              <h4><%= order.service.title %></h4>
+              <% end %>
+            </div>
+            <div class="col-md-2">
+              <h5>
+                Quantity: <%= order.quantity %><br>
+                Price: $<%= order.price %>
+              </h5>
+            </div>
+            <div class="col-md-2">
+              <h5><%= order.created_at.strftime("%b %d, %Y") %></h5>
+            </div>
+            <div class="col-md-3">
+              <h5>Total price: $<%= order.total_price %></h5>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>

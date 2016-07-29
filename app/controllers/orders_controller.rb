@@ -3,7 +3,13 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.build(order_params)
-    redirect_to @order.service
+    if @order.save
+      flash[:success] = "Order successfully placed"
+      redirect_to @order.service
+    else
+      flash[:alert] = @order.errors.full_messages.to_sentence
+      redirect_to @order.service
+    end
   end
 
   def user_orders

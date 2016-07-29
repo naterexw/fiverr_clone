@@ -7,7 +7,7 @@
         <%= f.submit "Order now - 1 ($#{@service.price})", class: "btn btn-success btn-lg btn-order" %>
       </center>
       <hr>
-      <h5 class="pull-left">Basic gig quantity</h5>
+      <h5 class="pull-left">Gig quantity</h5>
       <div class="form-group pull-right">
         <div class="select-control">
           <%= f.select(:quantity, options_for_select([ ["1 ($#{@service.price * 1})", 1],["2 ($#{@service.price * 2})", 2],["3 ($#{@service.price * 3})", 3],["4 ($#{@service.price * 4})", 4],["5 ($#{@service.price * 5})", 5] ]), {id: "quantity"}) %>
