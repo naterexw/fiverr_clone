@@ -1,16 +1,64 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <%= form_for([@service, @service.orders.new]) do |f| %>
+
+   <!--  <%= form_for([@service, @service.orders.new]) do |f| %>
       <%= f.hidden_field :service_id, value: @service.id %>
       <%= f.hidden_field :price, value: @service.price %>
       <center>
         <%= f.submit "Order now - 1 ($#{@service.price})", class: "btn btn-success btn-lg btn-order" %>
-      </center>
+      </center> -->
+
+    <center>
+      <%= form_tag charges_path, id: "chargeForm" do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+        <%= hidden_field_tag "stripeToken" %>
+        <%= hidden_field_tag "stripeEmail" %>
+        <%= hidden_field_tag "price", @service.price %>
+        <%= hidden_field_tag "total_price", {id: "total_price"} %>
+        <%= hidden_field_tag "service_id", @service.id %>
+        <%= hidden_field_tag "description", @service.title %>
+        <button type="button" id="btn-order" class="btn btn-success btn-lg btn-order">
+          Order now - ($<%= @service.price %>)
+        </button>
+
+        <script type="text/javascript">
+          var handler = StripeCheckout.configure({
+            key: "<%= Rails.configuration.stripe[:publishable_key] %>",
+            token: function(token,arg){
+              document.getElementById("stripeToken").value = token.id;
+              document.getElementById("stripeEmail").value = token.email;
+              document.getElementById("chargeForm").submit();
+            }
+          });
+
+          document.getElementById("btn-order").addEventListener("click", function(e){
+            var quantity = $("#quantity").val();
+            var total_price = (quantitiy * "<%= @service.price %>") + "00";
+            $("#total_price").val(total_price);
+            handler.open({
+              name: "Fiverr_clone",
+              description: "<%= @service.title %>",
+              amount: total_price
+            });
+            e.preventDefault();
+          });
+        </script>
+
+    </center>
+
       <hr>
       <h5 class="pull-left">Gig quantity</h5>
       <div class="form-group pull-right">
         <div class="select-control">
-          <%= f.select(:quantity, options_for_select([ ["1 ($#{@service.price * 1})", 1],["2 ($#{@service.price * 2})", 2],["3 ($#{@service.price * 3})", 3],["4 ($#{@service.price * 4})", 4],["5 ($#{@service.price * 5})", 5] ]), {id: "quantity"}) %>
+          <%= select_tag(:quantity, options_for_select([ ["1 ($#{@service.price * 1})", 1],["2 ($#{@service.price * 2})", 2],["3 ($#{@service.price * 3})", 3],["4 ($#{@service.price * 4})", 4],["5 ($#{@service.price * 5})", 5] ]), {id: "quantity"}) %>
         </div>
       </div>
     <% end %>
