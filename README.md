@@ -8,5 +8,5 @@ Gems
 Stack
   - Ruby version: 2.2.3p173
   - Rails version: 4.2.6
-  - Database: Postgres
-  - Frontend: Bootstrap
+  - Database: Postgresql
+  - Frontend: Bootstrap 3
