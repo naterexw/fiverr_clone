@@ -46,7 +46,7 @@
             handler.open({
               name: "Fiverr_clone",
               description: "<%= @service.title %>",
-              amount: total_price
+              amount: parseFloat(total_price)
             });
             e.preventDefault();
           });
