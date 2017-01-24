@@ -42,6 +42,9 @@ gem "paperclip"
 # Use Stripe for payments
 gem "stripe"
 
+# For heroku
+gem 'rails_12factor', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -66,4 +69,3 @@ group :development do
   # Use Footnotes for debugging
   gem 'rails-footnotes', '~> 4.0'
 end
-
