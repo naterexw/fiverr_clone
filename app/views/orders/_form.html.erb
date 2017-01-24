@@ -41,7 +41,7 @@
 
           document.getElementById("btn-order").addEventListener("click", function(e){
             var quantity = $("#quantity").val();
-            var total_price = (quantitiy * "<%= @service.price %>") + "00";
+            var total_price = (quantity * "<%= @service.price %>") + "00";
             $("#total_price").val(total_price);
             handler.open({
               name: "Fiverr_clone",
@@ -64,3 +64,4 @@
     <% end %>
   </div>
 </div>
+<% end %>
