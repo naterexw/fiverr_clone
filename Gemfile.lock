@@ -125,6 +125,7 @@ GEM
       mimemagic (= 0.3.0)
     pg (0.18.4)
     pkg-config (1.1.7)
+    puma (3.6.2)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -218,6 +219,7 @@ DEPENDENCIES
   omniauth-facebook
   paperclip
   pg (~> 0.15)
+  puma
   rails (= 4.2.6)
   rails-footnotes (~> 4.0)
   rails_12factor

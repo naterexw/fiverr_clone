@@ -1,17 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
 
-  def create
-    @order = current_user.orders.build(order_params)
-    if @order.save
-      flash[:success] = "Order successfully placed"
-      redirect_to @order.service
-    else
-      flash[:alert] = @order.errors.full_messages.to_sentence
-      redirect_to @order.service
-    end
-  end
-
   def user_orders
     @orders = current_user.orders
   end
