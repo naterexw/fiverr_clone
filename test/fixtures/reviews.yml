@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  star: 1
+  service_id: 
+  user_id: 
+
+two:
+  comment: MyString
+  star: 1
+  service_id: 
+  user_id: 

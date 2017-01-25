@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :services
   has_many :orders
-
+  has_many :reviews
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
