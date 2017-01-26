@@ -6,22 +6,35 @@
   </div>
 <% else %>
   <% @reviews.order("id desc").each do |r| %>
-  <div class="col-md-2">
-    <%= image_tag get_avatar_url(r.user, 128), class: "img-circle img-responsive" %>
-  </div>
-  <div class="col-md-7">
-    <p>
-      <strong>
-        <%= r.user.fullname %>
-      </strong>
-    </p>
-    <p>
-      <%= r.comment %>
-    </p>
-  </div>
-  <div class="col-md-3 pull-right">
-    <%= r.created_at.strftime('%b %d, %Y') %> <br>
-    <%= link_to "Remove my review", [@service, r], method: :delete, datat: {confirm: "Are you sure?"} if current_user %>
-  </div>
+
+    <div class="col-md-2">
+      <%= image_tag get_avatar_url(r.user, 128), class: "img-circle img-responsive" %>
+    </div>
+
+    <div class="col-md-7">
+      <p>
+        <strong>
+          <%= r.user.fullname %> &nbsp;
+          <span id="stars_<%= r.id %>"></span>
+        </strong>
+      </p>
+      <p>
+        <%= r.comment %>
+      </p>
+    </div>
+
+    <div class="col-md-3 pull-right">
+      <%= r.created_at.strftime('%b %d, %Y') %> <br>
+      <%= link_to "Remove my review", [@service, r], method: :delete, data: { confirm: "Are you sure?" } if current_user %>
+    </div>
+
+    <script>
+      $('#stars_<%= r.id %>').raty({
+        path: '/assets',
+        readOnly: true,
+        score: <%= r.star.to_i %>
+      });
+    </script>
+
   <% end %>
 <% end %>

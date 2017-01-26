@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    byebug
     @review = Review.find(params[:id])
     service = @review.service
     @review.destroy
