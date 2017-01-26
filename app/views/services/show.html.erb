@@ -19,12 +19,15 @@
         <p><%= @service.description %></p>
       </div>
     </div>
+
+    <%= render 'reviews/form' if @is_buyer && !@reviewed %>
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3>Reviews</h3>
       </div>
       <div class="panel-body">
-        
+        <%= render 'reviews/list' %>
       </div>
     </div>
   </div>

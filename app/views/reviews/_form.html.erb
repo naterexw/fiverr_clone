@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Add a review</h2>
+  </div>
+  <div class="panel-body">
+    <%= form_for([@service, @service.reviews.new]) do |f| %>
+      <div class="form-group">
+        <%= f.hidden_field :service_id, value: @service.id %>
+
+        <%= f.text_field :star %>
+        <br>
+        <%= f.text_area :comment, rows: 3, class: "form-control" %>
+        <%= f.submit "Add review", class: "btn btn-success pull-right" %>
+      </div>
+    <% end %>
+  </div>
+</div>

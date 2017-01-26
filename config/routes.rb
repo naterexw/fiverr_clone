@@ -7,14 +7,13 @@ Rails.application.routes.draw do
              controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
 
   resources :users, only: [:show]
-  resources :services
 
   resources :services do
     resources :orders, only: [:create]
+    resources :reviews, only: [:create, :destroy]
   end
 
-  resources :order, only: [:show]
-
+  resources :orders, only: [:show]
   resources :charges
 
   get "/user_orders", to: "orders#user_orders"

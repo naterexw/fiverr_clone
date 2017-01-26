@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def create
-    @review = current.user.reviews.create(review_params)
+    @review = current_user.reviews.create(review_params)
     redirect_to @review.service
   end
 
@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def reviews_params
+  def review_params
     params.require(:review).permit(:comment, :start, :service_id)
   end
 end
