@@ -80,6 +80,10 @@
 }
 
 .panel.panel-default {
+  a, a:hover {
+    text-decoration: none;
+    color: #333;
+  }
   .panel-heading, .panel-footer {
     background-color: #FFFFFF;
   }
@@ -87,7 +91,9 @@
     padding: 0;
     img {
       width: 100%;
-      height: 100%;
+      // width: 230px;
+      max-height: 140px;
+      // height: 100%;
     }
   }
   .panel-body.fill {
