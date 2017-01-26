@@ -13,14 +13,16 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-left" role="search">
+
+      <%= form_tag(search_path, method: :get, id: "search-form", class: "navbar-form navbar-left") do %>
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <%= text_field_tag :q, params[:q], class: "form-control", placeholder: "Search..." %>
           <span class="input-group-btn">
-            <button type="submit" class="btn btn-success">Submit</button>
+            <%= submit_tag "Search", name: nil, class: "btn btn-success" %>
           </span>
         </div>
-      </form>
+      <% end %>
+
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="dropdown">

@@ -17,4 +17,9 @@ class Service < ActiveRecord::Base
   def average_rating
     reviews.count == 0 ? 0 : reviews.average(:star).round(2)
   end
+
+  def self.search(query)
+    where("title ILIKE ? OR description ILIKE ? OR requirements ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")
+  end
+
 end

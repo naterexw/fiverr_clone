@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get "/user_orders", to: "orders#user_orders"
   get "/user_sales", to: "orders#user_sales"
 
+  get "/search", to: "search#search"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

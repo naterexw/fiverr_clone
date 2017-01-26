@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag(search_path, method: :get, id: "search-form") do %>
+      <div class="input-group input-group-lg">
+        <%= text_field_tag :q, params[:q], class: "form-control", placeholder: "What are you looking for..." %>
+        <span class="input-group-btn">
+          <%= submit_tag "Search", name: nil, class: "btn btn-success" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>

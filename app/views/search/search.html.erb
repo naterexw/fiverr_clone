@@ -1,0 +1,39 @@
+<div class="container">
+  <center>
+    <h1>Search results</h1>
+  </center>
+  <%= render 'search/form' %>
+  <br><br>
+
+  <div class="row">
+    <% if @services.blank? %>
+      <center>
+        <h4>No services found matching '<%= params[:q] %>'</h4>
+      </center>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <% @services.each do |service| %>
+      <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+          <%= link_to(service) do %>
+            <div class="panel-heading fill">
+              <%= image_tag(service.image.url(:medium), class: "img-responsive") %>
+            </div>
+            <div class="panel-body fill">
+              <h3><%= service.title %></h3>
+              <h4>$<%= service.price %></h4>
+              <div class="panel-primary-overlay-up">
+                <div class="padding-left-15">
+                  <h3><%= service.requirements %></h3>
+                  <h3><%= pluralize(service.revisions, "revision") + " allowed" %></h3>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
