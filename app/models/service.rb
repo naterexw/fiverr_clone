@@ -1,4 +1,9 @@
 class Service < ActiveRecord::Base
+
+  belongs_to :user
+  has_many :orders
+  has_many :reviews
+
   has_attached_file :image, styles: {medium: "300x300>", small: "230x140>", thumb: "100x100>"}
 
   validates_presence_of :title, length: {maximum:80}
@@ -9,8 +14,7 @@ class Service < ActiveRecord::Base
   validates_presence_of :requirements, length: {maximum:450}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  belongs_to :user
-  has_many :orders
-  has_many :reviews
-
+  def average_rating
+    reviews.count == 0 ? 0 : reviews.average(:star).round(2)
+  end
 end

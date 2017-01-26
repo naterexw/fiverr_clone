@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    byebug
     @review = Review.find(params[:id])
     service = @review.service
     @review.destroy
@@ -16,6 +15,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:comment, :start, :service_id)
+    params.require(:review).permit(:comment, :star, :service_id)
   end
 end
