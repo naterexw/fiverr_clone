@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.3.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
@@ -38,8 +38,9 @@ gem 'omniauth-facebook'
 # Use Figaro gem for env variables
 gem "figaro"
 
-# Use Paperclip for image uploads
+# Use Paperclip & rmagick for image uploads
 gem "paperclip"
+gem 'rmagick', group: :production
 
 # Use Stripe for payments
 gem "stripe"
