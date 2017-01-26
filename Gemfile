@@ -40,7 +40,7 @@ gem "figaro"
 
 # Use Paperclip & rmagick for image uploads
 gem "paperclip"
-gem 'rmagick', group: :production
+gem 'rmagick', '2.13.2', group: :production
 
 # Use Stripe for payments
 gem "stripe"
